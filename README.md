@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/pilu/stravatt.png)](https://travis-ci.org/pilu/stravatt)
 
+Given a Strava segment, a time range, and some users, it takes the first effort of each user on the selected
+segment and creates a leaderboard based on efforts moving times.
 
 ## Installation
 
@@ -31,9 +33,9 @@ end_time = Time.parse DATE_STRING
 
 tt = StravaTT.new segment_id, start_time, end_time
 tt.leaderboard [
-  StravaTT::User.new(YOUR_INTERNAL_ID, USER_TOKEN),
-  StravaTT::User.new(YOUR_INTERNAL_ID, USER_TOKEN),
-  StravaTT::User.new(YOUR_INTERNAL_ID, USER_TOKEN)
+  StravaTT::User.new(YOUR_INTERNAL_ID, STRAVA_USER_ACCESS_TOKEN),
+  StravaTT::User.new(YOUR_INTERNAL_ID, STRAVA_USER_ACCESS_TOKEN),
+  StravaTT::User.new(YOUR_INTERNAL_ID, STRAVA_USER_ACCESS_TOKEN)
 ]
 
 => [
@@ -52,6 +54,8 @@ tt.leaderboard [
     ...
    ]
 ```
+
+More info about the SegmentEffort object in the [mini-strava repository](https://github.com/pilu/mini-strava).
 
 ## Development
 
