@@ -1,11 +1,7 @@
-# Stravatt
+# StravaTT
 
 [![Build Status](https://travis-ci.org/pilu/stravatt.png)](https://travis-ci.org/pilu/stravatt)
 
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stravatt`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -25,7 +21,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'time'
+require 'stravatt'
+
+segment_id = SEGMENT_ID
+start_time = Time.parse DATE_STRING
+end_time = Time.parse DATE_STRING
+
+tt = StravaTT.new segment_id, start_time, end_time
+tt.leaderboard [
+  StravaTT::User.new(YOUR_INTERNAL_ID, USER_TOKEN),
+  StravaTT::User.new(YOUR_INTERNAL_ID, USER_TOKEN),
+  StravaTT::User.new(YOUR_INTERNAL_ID, USER_TOKEN)
+]
+
+=> [
+    {
+      :user_id=>1,
+      :effort=>
+      #<MiniStrava::Models::SegmentEffort:0x007f83a32a4fd0
+      ...
+    },
+    {
+      :user_id=>2,
+      :effort=>
+      #<MiniStrava::Models::SegmentEffort:0x007f83a32a4fd0
+      ...
+    },
+    ...
+   ]
+```
 
 ## Development
 
